@@ -1,0 +1,1 @@
+dbt project demonstrating layered data modeling (staging, intermediate, marts) on DVDRental data.
