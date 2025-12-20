@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: dvdrental
+    tables:
+      - name: payment
+      - name: customer
+
+models:
+  - name: stg_payment
+    description: "Staging table untuk data pembayaran"
+    columns:
+      - name: payment_id
+        tests:
+          - not_null
+          - unique
+
+  - name: int_customer_payment
+    description: "Data agregat pembayaran per customer"
+
+  - name: mart_customer_revenue
+    description: "Mart analitik revenue customer"
+    columns:
+      - name: kategori_customer
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['HIGH', 'MEDIUM', 'LOW']
