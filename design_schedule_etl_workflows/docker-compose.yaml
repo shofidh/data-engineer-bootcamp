@@ -24,7 +24,7 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
     ports:
-      - "8081:8080"   # 👈 PORT BARU
+      - "8080:8080"   # 👈 PORT BARU
     command: webserver
     restart: always
 

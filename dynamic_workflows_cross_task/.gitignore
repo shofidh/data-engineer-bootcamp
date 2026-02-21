@@ -1,0 +1,11 @@
+# Airflow
+logs/
+*.log
+
+# Python
+__pycache__/
+.venv/
+.pytest_cache/
+
+# Env
+.env
