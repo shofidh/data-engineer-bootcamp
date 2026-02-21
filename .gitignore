@@ -1,6 +1,31 @@
-airflow/dags/
-airflow/data/
-airflow/plugins/
-spark/scripts/
-kafka/scripts/
-db/sql/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# Airflow
+airflow.db
+logs/
+
+# Spark output
+data/output/
+*.parquet
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Docke
+*.log
+
+# IDE
+.vscode/
+.idea/
