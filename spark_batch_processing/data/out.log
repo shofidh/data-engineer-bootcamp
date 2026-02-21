@@ -1,0 +1,26 @@
+/home/airflow/.local/lib/python3.11/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/02/21 10:30:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Spark Session Started...
+Data Loaded Successfully
+DEBUG: orders count before join = 3000
+DEBUG: order_items count before join = 3000
+DEBUG: joined_df count after join = 3000
+Join Completed
+DEBUG: final joined_df count = 3000
+Data successfully written to temporary path /tmp/fact_transactions
+Data successfully copied to mounted volume /opt/data/output/fact_transactions in Parquet format
+Data saved to /opt/data/output/fact_transactions in Parquet format
++--------+-----------+----------+----------+--------+---------+---------+
+|order_id|customer_id|order_date|product_id|quantity|    price|      gmv|
++--------+-----------+----------+----------+--------+---------+---------+
+|    5001|        375|2023-04-23|       483|       1| 911307.0| 911307.0|
+|    5002|        201|2023-03-12|       441|       3|1028008.0|3084024.0|
+|    5003|        144|2023-01-30|       325|       4|1429849.0|5719396.0|
+|    5004|        543|2023-05-15|       105|       3|  63923.0| 191769.0|
+|    5005|        405|2023-03-08|       406|       3|1682060.0|5046180.0|
++--------+-----------+----------+----------+--------+---------+---------+
+only showing top 5 rows
+
+Spark Session Stopped

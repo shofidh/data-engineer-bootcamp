@@ -1,0 +1,57 @@
+services:
+  # ======================== AIRFLOW ========================
+  airflow:
+    build: .
+    container_name: airflow-sbp
+    environment:
+      _AIRFLOW_WWW_USER_USERNAME: admin
+      _AIRFLOW_WWW_USER_PASSWORD: admin123
+      _AIRFLOW_WWW_USER_EMAIL: admin@example.com
+      AIRFLOW_CONN_SPARK_DEFAULT: '{"conn_type": "spark", "host": "spark://spark-master-sbp", "port": 7077}'
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/data
+      - ./spark_jobs:/opt/spark_jobs
+      - ./plugins:/opt/airflow/plugins
+    ports:
+      - "8080:8080"
+    command: standalone
+    depends_on:
+      - spark-master
+    profiles:
+      - airflow
+
+  # ======================== SPARK ========================
+  spark-master:
+    build: ./spark/.
+    container_name: spark-master-sbp
+    user: root
+    env_file:
+      - ./spark/.env
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "7077:7077"
+      - "8081:8080"
+    volumes:
+      - ./data:/opt/data
+      - ./spark_jobs:/opt/spark_jobs
+    profiles:
+      - spark
+
+  spark-worker:
+    build: ./spark/.
+    container_name: spark-worker-sbp
+    user: root
+    env_file:
+      - ./spark/.env
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master-sbp:7077
+    depends_on:
+      - spark-master
+    volumes:
+      - ./data:/opt/data
+      - ./spark_jobs:/opt/spark_jobs
+    profiles:
+      - spark
