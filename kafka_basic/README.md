@@ -33,8 +33,8 @@ Consumer membaca *payload* JSON dan melakukan agregasi berupa **pencatatan dan p
 
 **Contoh Output Terminal:**
 *(Screenshot terminal saat Producer mengirim data dan Consumer memprosesnya)*
-![Producer Running](https://github.com/shofidh/data-engineer-bootcamp/blob/main/kafka_basic/screenshots/producer_running.png)
-![Consumer Running](https://github.com/shofidh/data-engineer-bootcamp/blob/main/kafka_basic/screenshots/consumer_running.png)
+![Producer Running](https://github.com/shofidh/data-engineer-bootcamp/blob/main/kafka_basic/screenshoots/producer_running.png)
+![Consumer Running](https://github.com/shofidh/data-engineer-bootcamp/blob/main/kafka_basic/screenshoots/consumer_running.png)
 
 ---
 
@@ -50,7 +50,7 @@ Ketika dua consumer berada dalam satu *Consumer Group*, Kafka secara otomatis me
 * Data dari `user_1` dan `user_2` (yang berada di Partisi 2) hanya diproses oleh Consumer B, sementara data `user_3` (di Partisi 1) diproses oleh Consumer A.
 
 **Screenshot 2 Consumer Berjalan Paralel:**
-![Two Consumers](https://github.com/shofidh/data-engineer-bootcamp/blob/main/kafka_basic/screenshots/two_consumers.png)
+![Two Consumers](https://github.com/shofidh/data-engineer-bootcamp/blob/main/kafka_basic/screenshoots/two_consumers.png)
 
 ---
 
@@ -62,7 +62,7 @@ Sebagai bentuk pengujian keandalan sistem (*fault tolerance*), salah satu Consum
 Kafka mendeteksi bahwa salah satu *node* terputus dan langsung memicu proses **Rebalancing**. Consumer yang tersisa secara otomatis mengambil alih seluruh partisi dari consumer yang mati, sehingga pemrosesan data tidak terhenti.
 
 **Screenshot Rebalancing:**
-![Rebalance](https://github.com/shofidh/data-engineer-bootcamp/blob/main/kafka_basic/screenshots/rebalance.png)
+![Rebalance](https://github.com/shofidh/data-engineer-bootcamp/blob/main/kafka_basic/screenshoots/rebalance.png)
 
 ---
 
